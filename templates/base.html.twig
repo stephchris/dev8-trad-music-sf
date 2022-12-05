@@ -15,19 +15,32 @@
     </head>
     <body>
 
-        <header>
-            <nav>
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar">
                 <ul>
-                    <li>
-                        <a href="{{ path('homepage') }}">Home</a>
-                    </li>
+                    <li><a href="{{ path('homepage') }}">Home</a></li>
+                    <li><a href="{{ path('musician_list') }}">Musicians</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
 
                 </ul>
-
+                <ul>
+                    <li><a href="#">Connection</a></li>
+                </ul>
             </nav>
+        </div>
+    </header>
 
 
-        </header>
+    <main>
         {% block body %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Trad Music &copy; 2022</p>
+        </div>
+    </footer>
     </body>
 </html>
