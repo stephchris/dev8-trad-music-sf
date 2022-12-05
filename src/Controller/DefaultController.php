@@ -18,7 +18,7 @@ class DefaultController extends AbstractController
         dump($instruments);
         // appelle le fichier de template Twig avec la méthode render
         //permet d'envoyer des données du controller vers la vue homepage
-        // retourner ce qu'i y a dans la page home
+        // retourner ce qu'il y a dans la page home
         return $this->render('default/homepage.html.twig', [
             'instruments' => $instruments
         ]);
