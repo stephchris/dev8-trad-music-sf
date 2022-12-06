@@ -1,10 +1,13 @@
 <article class="card">
     <a href="{{ path('gig_detail', {'id': gig.id}) }}">
-        <img src="" alt=>
+        <img src="{{  asset ('uploads/' ~ gig.pub.image) }}" alt="{{ gig.pub.image }}">
     </a>
     <h3>{{ gig.pub.name }}</h3>
-    <time></time>
-    <p>on fait des test</p>
+    <time datetime="{{ gig.dateStart|date('Y-m-d h:i') }}">
+        {{ gig.dateStart|date('l jS \\o\\f F \\a\\t g:i a') }}
+    </time>
+
     <a href="#" class="btn btn-primary">See more</a>
 
 </article>
+

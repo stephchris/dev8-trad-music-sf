@@ -1,42 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<section class="container">
-    <h1>Accueil</h1>
-</section>
+    <section class="container">
+        <h1>Accueil</h1>
+    </section>
 
-<section class="container">
-    <h2>Next gigs in town</h2>
+    <section class="container">
+        <h2>Next gigs in town</h2>
 
-    <div class="grid">
+        <div class="grid">
+            {% for gig in gigs %}
+                <article class="card">
+                    <img src="{{ asset('uploads/' ~ gig.pub.image) }}" alt="{{ gig.pub.name }}">
+                    <h3>{{ gig.pub.name }}</h3>
+                    <time datetime="{{ gig.dateStart|date('Y-m-d h:i') }}">
+                        {{ gig.dateStart|date('l jS \\o\\f F \\a\\t g:i a') }}
+                    </time>
+                    <a href="{{ path('gig_detail', {'id': gig.id}) }}" class="btn btn-primary">See more</a>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
 
-        {% for gig in gigs %}
-            {% include 'gig/_card.html.twig' with {'gig': gig} only %}
+    {# <?php foreach ($musicians as $musician): ?> #}
 
-
-
-        <article class="card">
-            <img src="{{  asset 'uploads/' ~ gig.pub.image }}" alt="{{ gig.pub.image }}">
-            <h3>gig.pub.image</h3>
-            <time datetime="{{ gig.dateStart|date('Y-m-d h:i') }}">
-                {{ gig.dateStart|date('l jS \\o\\f F \\a\\t g:i a') }}
-            </time>
-            <a href="#" class="btn btn-primary">See more</a>
-        </article>
-        {% endfor %}
-    </div>
-</section>
-
-
+    {# Boucler sur la liste des musiciens #}
     <section class="container">
         <h2>Available musicians</h2>
 
         <div class="grid">
 
             {% for musician in musicians %}
+                {# Inclure le fichier musician/_card.html.twig en envoyant la variable musician (et uniquement musician) #}
                 {% include 'musician/_card.html.twig' with {'musician': musician} only %}
             {% endfor %}
-
 
         </div>
     </section>
