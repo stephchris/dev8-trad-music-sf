@@ -20,4 +20,6 @@ class GigController extends AbstractController
             'gig' => $gig
         ]);
     }
+
+
 }

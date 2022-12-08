@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+    {{ pub.address }}<br>
+    {{ pub.zipcode }}<br>
+    {{ pub.city }}
+{% endblock %}
+
+{% block body %}
+
+    <section class="container">
+        <h3>Address : {{ pub.address }}<br></h3>
+        <h3>zipcode : {{ pub.zipcode }}<br></h3>
+        <h3>City : {{ pub.city }}</h3>
+    </section>
+
+
+{% endblock %}
+
+
+
+
+
