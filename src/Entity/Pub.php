@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PubRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Pub
 {
     #[ORM\Id]
@@ -161,5 +162,15 @@ class Pub
         $this->createdAt = $createdAt;
 
         return $this;
+    }
+
+    /**
+     * Methode qui sera appelée automatiquement par Doctrine avant l'enregistrement d'un pub
+     * @return void
+     */
+    #[ORM\prePersist]
+    public function prePersist(): void
+    {
+     $this->setCreatedAt(new \DateTimeImmutable());
     }
 }
