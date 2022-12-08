@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Instrument;
 use App\Form\InstrumentType;
+use App\Repository\InstrumentRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -41,4 +42,18 @@ class   InstrumentController extends AbstractController
             'form' => $form,
         ]);
     }
+
+    /**
+     * Méthode qui permet d afficher la liste des instruments
+     * cette méthode sera appelée en twig avec render(controller())
+     * @param InstrumentRepository $instrumentRepository
+     * @return Response
+     */
+    public function listInstruments(InstrumentRepository $instrumentRepository): Response
+{
+    $instruments = $instrumentRepository->findBy([], ['name' => 'ASC']); //SELECT*FROM instrument ORDER BY name ASC
+    return $this->render('instrument/_list.html.twig', [
+        'instruments' => $instruments
+    ]);
+}
 }
