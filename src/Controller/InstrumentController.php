@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Instrument;
+use App\Entity\Pub;
 use App\Form\InstrumentType;
 use App\Repository\InstrumentRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -12,9 +13,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route('/instrument')]
 class   InstrumentController extends AbstractController
 {
-    #[Route('/instrument/new', name: 'instrument_new')]
+    #[Route('/new', name: 'instrument_new')]
     #[IsGranted('ROLE_ADMIN')]
     public function new(Request $request, ManagerRegistry $doctrine): Response
     {
@@ -56,4 +58,14 @@ class   InstrumentController extends AbstractController
         'instruments' => $instruments
     ]);
 }
+
+    #[Route('/{id}', name: 'app_instrument_show', methods: ['GET'])]
+
+    public function show(Instrument $instrument): Response
+    {
+        return $this->render('instrument/show.html.twig', [
+            'instrument' => $instrument,
+        ]);
+    }
+
 }

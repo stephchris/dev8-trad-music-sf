@@ -21,6 +21,7 @@
                 <ul>
                     <li><a href="{{ path('homepage') }}">Home</a></li>
                     <li><a href="{{ path('musician_list') }}">Musicians</a></li>
+                    <li><a href="{{ path('app_pub_index') }}">Pubs</a></li> //création du bouton pub
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
 
@@ -30,8 +31,8 @@
                     {% if app.user %}
                         <li><a href="{{ path('app_logout') }}">Logout</a></li>
                     {% else%}
-                         <li><a href="{{ path('app_login') }}">Connection</a></li>
-                         <li><a href="{{ path('app_register') }}">Register</a></li>
+                        <li><a href="{{ path('app_login') }}">Connection</a></li>
+                        <li><a href="{{ path('app_register') }}">Register</a></li>
                     {% endif %}
                 </ul>
             </nav>

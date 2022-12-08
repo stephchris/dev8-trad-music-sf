@@ -168,7 +168,7 @@ class Pub
      * Methode qui sera appelée automatiquement par Doctrine avant l'enregistrement d'un pub
      * @return void
      */
-    #[ORM\prePersist]
+    #[ORM\PrePersist]
     public function prePersist(): void
     {
      $this->setCreatedAt(new \DateTimeImmutable());
