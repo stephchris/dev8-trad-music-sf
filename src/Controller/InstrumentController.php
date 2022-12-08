@@ -5,14 +5,16 @@ namespace App\Controller;
 use App\Entity\Instrument;
 use App\Form\InstrumentType;
 use Doctrine\Persistence\ManagerRegistry;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class InstrumentController extends AbstractController
+class   InstrumentController extends AbstractController
 {
     #[Route('/instrument/new', name: 'instrument_new')]
+    #[IsGranted('ROLE_ADMIN')]
     public function new(Request $request, ManagerRegistry $doctrine): Response
     {
         //créer un nouvel instrument
