@@ -173,4 +173,15 @@ class Pub
     {
      $this->setCreatedAt(new \DateTimeImmutable());
     }
+
+
+
+
+    public function getFullname(): string
+    {
+        return $this->getAddress() . ' ' . $this->getZipcode();
+    }
+
+
+
 }

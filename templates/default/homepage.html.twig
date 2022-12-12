@@ -10,14 +10,9 @@
 
         <div class="grid">
             {% for gig in gigs %}
-                <article class="card">
-                    <img src="{{ asset('uploads/' ~ gig.pub.image) }}" alt="{{ gig.pub.name }}">
-                    <h3>{{ gig.pub.name }}</h3>
-                    <time datetime="{{ gig.dateStart|date('Y-m-d h:i') }}">
-                        {{ gig.dateStart|date('l jS \\o\\f F \\a\\t g:i a') }}
-                    </time>
-                    <a href="{{ path('gig_detail', {'id': gig.id}) }}" class="btn btn-primary">See more</a>
-                </article>
+
+                {% include 'gig/_card.html.twig' with {'gig': gig} only %}  {# pour afficher ce qui est dans la gig_card, include à la place de l'article #}
+
             {% endfor %}
         </div>
     </section>

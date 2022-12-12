@@ -2,17 +2,37 @@
 
 
 {% block title %}
-    {{ pub.address }}<br>
-    {{ pub.zipcode }}<br>
-    {{ pub.city }}
+
 {% endblock %}
 
 {% block body %}
 
+
+
     <section class="container">
+
+        <h1>Pubs detail</h1>
+
+        <h2>{{ pub.name }}</h2>
+            <article class="card">
+                <img src="{{ asset('uploads/' ~ pub.image) }}" alt="{{ pub.name }}">
+            </article>
         <h3>Address : {{ pub.address }}<br></h3>
         <h3>zipcode : {{ pub.zipcode }}<br></h3>
         <h3>City : {{ pub.city }}</h3>
+    </section>
+
+    <section class="container">
+
+
+        {# création du lien pour récupérer #}
+        <div class="grid">
+            {% for gig in pub.gigs %}
+
+                {% include 'gig/_card.html.twig' with {'gig': gig} only %}  {# pour afficher ce qui est dans la gig_card, include à la place de l'article #}
+
+            {% endfor %}
+        </div>
     </section>
 
 

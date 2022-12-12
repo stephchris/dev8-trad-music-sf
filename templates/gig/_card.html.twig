@@ -1,3 +1,5 @@
+{# création de la gig_card avec les détails des pubs pour boucler dans pub_detail#}
+
 <article class="card">
     <a href="{{ path('gig_detail', {'id': gig.id}) }}">
         <img src="{{  asset ('uploads/' ~ gig.pub.image) }}" alt="{{ gig.pub.image }}">
@@ -7,7 +9,9 @@
         {{ gig.dateStart|date('l jS \\o\\f F \\a\\t g:i a') }}
     </time>
 
-    <a href="#" class="btn btn-primary">See more</a>
+    <a href="/{{ path('gig_detail', {'id': 'gig.id'}) }}" class="btn btn-primary">See more</a>
+
+
 
 </article>
 

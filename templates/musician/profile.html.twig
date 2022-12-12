@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MusicianController!{% endblock %}
+
+{% block body %}
+
+    <section class="container">
+        <h1>Modify your user profile</h1>
+
+        {# Générer la balise <form> (balise ouvrante) #}
+        {{ form_start(form) }}
+
+
+
+        {# Générer l'ensemble des champs du formulaire #}
+        {{ form_widget(form) }}
+
+        <button type="submit">Enregistrer</button>
+
+        {# Générer la balise </form> (balise fermante) #}
+        {{ form_end(form) }}
+
+    </section>
+{% endblock %}

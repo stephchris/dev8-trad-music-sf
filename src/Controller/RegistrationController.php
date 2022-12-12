@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Musician;
-use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
@@ -13,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-class RegistrationController extends AbstractController
+class  RegistrationController extends AbstractController
 {
     #[Route('/register', name: 'app_register')]
     public function register(

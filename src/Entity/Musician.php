@@ -14,6 +14,7 @@ class Musician extends User
 
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'not valid !')]
     private ?string $firstName = null;
 
     #[ORM\Column(length: 255, nullable: true)]

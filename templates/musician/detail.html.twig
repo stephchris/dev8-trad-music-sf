@@ -1,9 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ musician.firstName }}{% endblock %}
+{% block title %}{{ musician.firstName }} {{ musician.lastName }}{% endblock %}
 
 {% block body %}
-    <h1>{{ musician.firstName }}</h1>
+    <section class="container">
+    <h1>{{ musician.fullname }}</h1>
+    </section>
+
+    {{ form(form) }}
+
 {% endblock %}
 
 
